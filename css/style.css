@@ -22,6 +22,7 @@ body{
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
+  margin-top: 50px;
 }
 .stCard{
   width: 200px;
@@ -68,6 +69,7 @@ body{
   text-align: center;
   color: white;
   display: none;
+  margin-top: 15px;
 }
 .prev, .next, .backBtn, .back{
   border: none;
