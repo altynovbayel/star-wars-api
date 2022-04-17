@@ -16,6 +16,8 @@ const backgroundImg = [
   'https://wallpapersmug.com/download/1920x1080/6fc111/clone-trooper-star-wars-4k.jpg',
   'https://cdn.wallpapersafari.com/48/46/cw5tZM.jpg',
   'https://cdn.wallpapersafari.com/6/35/Ebwg5d.jpg',
+  'https://i.pinimg.com/originals/25/43/81/2543813e77e4ede897ebc169561de540.jpg',
+  'https://free4kwallpapers.com/uploads/originals/2021/04/02/sith-yoda--star-wars-wallpaper.jpg',
 ]
 
 const themes = [
@@ -75,7 +77,6 @@ function templateRouteCard(title, route){
     </div>
   `
 }
-
 
 function choosenTheme(route){
   localStorage.setItem('route', route)
@@ -258,7 +259,13 @@ $prev.addEventListener('click', e => {
   $next.removeAttribute('disabled')
   const route = localStorage.getItem('route')
   getBase(`${baseUrl}${route}`, `page=${pageCount}`, cb => {
-    template(cb.results)
+    if (route === 'people') {
+      template(cb.results)
+    } else if (route === 'planets') {
+      planetsTemplate(cb.results)
+    } else if (route === 'starships') {
+      starhipsTemplate(cb.results)
+    }
   })
 })
 
@@ -284,7 +291,6 @@ $next.addEventListener('click', e => {
     } else if (route === 'starships'){
       starhipsTemplate(cb.results)
     }
-    
   })
 
 })
